@@ -8,9 +8,6 @@ import 'package:grasshopper_jobs/src/features/splash/presentation/splash_page.da
 import 'package:grasshopper_jobs/src/routes.dart' as routes;
 
 void main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -26,6 +23,17 @@ class MyApp extends ConsumerStatefulWidget {
 }
 
 class _MyAppState extends ConsumerState<MyApp> {
+  @override
+  void initState(){
+    initFirebase();
+    super.initState();
+  }
+  
+  void initFirebase() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +71,7 @@ class _MyAppState extends ConsumerState<MyApp> {
           page = const Center(child: Text("Error!"));
         }
 
-         return MaterialPageRoute(
+        return MaterialPageRoute(
           builder: (context) {
             return page;
           },
@@ -73,4 +81,3 @@ class _MyAppState extends ConsumerState<MyApp> {
     );
   }
 }
-

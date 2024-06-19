@@ -1,4 +1,4 @@
-package br.com.grasshopperjobs.grasshopper_jobs
+package br.com.grasshopperjobs
 
 import io.flutter.embedding.android.FlutterActivity
 
