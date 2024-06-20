@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grasshopper_jobs/src/features/authentication/presentation/singin_page.dart';
 import 'package:grasshopper_jobs/src/features/home/presentation/home_page.dart';
 import 'package:grasshopper_jobs/src/features/splash/presentation/splash_page.dart';
@@ -21,7 +22,6 @@ class MyApp extends ConsumerStatefulWidget {
 }
 
 class _MyAppState extends ConsumerState<MyApp> {
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,6 +41,24 @@ class _MyAppState extends ConsumerState<MyApp> {
           brightness: Brightness.light,
         ),
         useMaterial3: true,
+        textTheme: GoogleFonts.robotoSlabTextTheme(
+          const TextTheme(
+            bodyLarge: TextStyle(color: Colors.black),
+            bodyMedium: TextStyle(color: Colors.black),
+            bodySmall: TextStyle(color: Colors.black),
+            titleLarge: TextStyle(color: Colors.black),
+            titleMedium: TextStyle(color: Colors.black),
+            titleSmall: TextStyle(color: Colors.black),
+          ),
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          isDense: true,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(3),
+            ),
+          ),
+        ),
       ),
       initialRoute: routes.root,
       onGenerateRoute: (settings) {
@@ -55,7 +73,7 @@ class _MyAppState extends ConsumerState<MyApp> {
           page = HomePage(route: subRoute);
         } else {
           // Route not found
-          page = const Center(child: Text("Error!"));
+          page = const Scaffold(body: Center(child: Text("Error!")));
         }
 
         return MaterialPageRoute(
