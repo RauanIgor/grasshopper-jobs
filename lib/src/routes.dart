@@ -6,3 +6,4 @@ const authResetRequest = "req_reset_password";
 
 // Home
 const home = "/home/";
+const bookForm = "/book_form/";

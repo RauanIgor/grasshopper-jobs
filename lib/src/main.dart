@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grasshopper_jobs/app/shared/services/push_notification_service.dart';
 import 'package:grasshopper_jobs/src/features/authentication/presentation/singin_page.dart';
 import 'package:grasshopper_jobs/src/features/home/presentation/home_page.dart';
 import 'package:grasshopper_jobs/src/features/splash/presentation/splash_page.dart';
 import 'package:grasshopper_jobs/src/routes.dart' as routes;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -32,11 +36,11 @@ class _MyAppState extends ConsumerState<MyApp> {
           primary: Color(0xFF004356),
           inversePrimary: Color(0xFF005366),
           secondary: Color(0xFF006276),
-          surface: Color(0xFFF2F2F2),
+          surface: Color(0xFF005366),
           error: Colors.red,
           onPrimary: Colors.white,
           onSecondary: Colors.white,
-          onSurface: Color(0xFF262626),
+          onSurface: Color(0xFF004356),
           onError: Colors.white,
           brightness: Brightness.light,
         ),

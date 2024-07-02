@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:grasshopper_jobs/app/shared/services/push_notification_service.dart';
 import 'package:grasshopper_jobs/firebase_options.dart';
 import 'package:grasshopper_jobs/src/routes.dart' as routes;
 
@@ -12,7 +13,7 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   @override
-  void initState(){
+  void initState() {
     initializeFirebase();
     super.initState();
   }
@@ -21,8 +22,11 @@ class _SplashPageState extends State<SplashPage> {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    PushNotificationService().initialize();
+    await Future.delayed(Duration(seconds: 5));
     Navigator.pushReplacementNamed(context, routes.authPrefix);
   }
+
 
 
   @override
